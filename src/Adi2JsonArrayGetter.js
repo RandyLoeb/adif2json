@@ -15,7 +15,7 @@ export class Adi2JsonArrayGetter {
     getterInfo.recordBuffer.forEach(x => {
       const match = x.match(/<(.*?):(.*?)>(.*)/)
       const parsedInt = parseInt(match[3])
-      jsonRecord[match[1]] = parsedInt === 'NaN' ? match[3] : parsedInt
+      jsonRecord[match[1]] = isNaN(parsedInt) ? match[3] : parsedInt
     })
     getterInfo.jsonRecords.push(jsonRecord)
   }
